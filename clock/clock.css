@@ -1,0 +1,90 @@
+@font-face {
+  font-family: 'Archivo Black';
+  src: url('../fonts/ArchivoBlack-Regular.ttf') format('truetype');
+  font-display: block;
+}
+
+:root {
+  --bg: #ffffff;          /* Notion light page */
+  --tile: #77736d;
+  --tile-top: #807c76;    /* upper half catches a little more light */
+  --digit: #f3f1ec;
+  --hinge: rgba(0, 0, 0, 0.28);
+  --caption: #666666;
+}
+:root[data-theme='dark'] {
+  --bg: #191919;          /* Notion dark page */
+  --caption: #9b9a97;
+}
+/* default (auto): follow the viewer's system setting, like Notion's "Use system setting" */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme='light']) {
+    --bg: #191919;
+    --caption: #9b9a97;
+  }
+}
+
+* { box-sizing: border-box; margin: 0; }
+
+html, body { height: 100%; }
+
+body {
+  background: var(--bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 8px;
+  overflow: hidden;
+  font-family: 'Archivo Black', 'Arial Black', sans-serif;
+}
+
+/* the whole clock is ~0.52x as tall as it is wide, so cap width by the frame height too */
+.clock {
+  width: min(100%, 440px, calc((100vh - 16px) * 1.9));
+  container-type: inline-size;
+}
+
+.tiles { display: flex; gap: 3cqi; }
+
+.tile {
+  flex: 1;
+  position: relative;
+  aspect-ratio: 1 / 0.86;
+  border-radius: clamp(4px, 2.4cqi, 10px);
+  background: linear-gradient(var(--tile-top) 0 50%, var(--tile) 50% 100%);
+  color: var(--digit);
+  display: grid;
+  place-items: center;
+  font-size: 30cqi;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  font-variant-numeric: tabular-nums;
+  overflow: hidden;
+}
+
+/* the hinge: one hairline through the middle */
+.tile::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; top: 50%;
+  height: max(1px, 0.5cqi);
+  background: var(--hinge);
+}
+
+.tile.flip span { animation: drop 360ms cubic-bezier(.3, .7, .4, 1); }
+@keyframes drop {
+  from { transform: perspective(300px) rotateX(70deg); transform-origin: 50% 0; opacity: .4; }
+  to   { transform: none; opacity: 1; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .tile.flip span { animation: none; }
+}
+
+.caption {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 2.4cqi;
+  font-size: clamp(9px, 3.2cqi, 13px);
+  letter-spacing: 0.08em;
+  color: var(--caption);
+}

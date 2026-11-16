@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Flip clock</title>
+  <link rel="stylesheet" href="clock.css">
+</head>
+<body>
+  <div class="clock" id="clock" role="timer" aria-live="off">
+    <div class="tiles">
+      <div class="tile"><span class="hh">--</span></div>
+      <div class="tile"><span class="mm">--</span></div>
+    </div>
+    <div class="caption"><span class="ampm"></span><span class="weekday"></span></div>
+  </div>
+  <script type="module">
+    import { mount, parseOptions } from './clock.js';
+    mount(document.getElementById('clock'), parseOptions(location.search));
+  </script>
+</body>
+</html>
