@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>This week</title>
+  <style>
+    @font-face {
+      font-family: 'Archivo Black';
+      src: url('../fonts/ArchivoBlack-Regular.ttf') format('truetype');
+      font-display: block;
+    }
+    :root { --bg: #ffffff; --ink: #191919; --muted: #77736d; }
+    :root[data-theme='dark'] { --bg: #191919; --ink: #e6e6e3; --muted: #9b9a97; }
+    @media (prefers-color-scheme: dark) {
+      :root:not([data-theme='light']) { --bg: #191919; --ink: #e6e6e3; --muted: #9b9a97; }
+    }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body {
+      background: var(--bg);
+      display: flex;
+      align-items: center;
+      padding: 0 4px;
+      overflow: hidden;
+      font-family: 'Archivo Black', 'Arial Black', sans-serif;
+    }
+    .week { display: flex; align-items: baseline; gap: 12px; white-space: nowrap; }
+    .range { font-size: clamp(18px, 7vw, 30px); color: var(--ink); letter-spacing: -0.01em; }
+    .num { font-size: 12px; letter-spacing: 0.08em; color: var(--muted); }
+  </style>
+</head>
+<body>
+  <div class="week" id="week"><span class="range">--</span><span class="num"></span></div>
+  <script type="module">
+    import { mount } from './week.js';
+    import { parseOptions } from '../clock/clock.js';
+    mount(document.getElementById('week'), parseOptions(location.search).theme);
+  </script>
+</body>
+</html>

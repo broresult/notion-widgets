@@ -43,3 +43,13 @@ npm test
 
 Code: MIT (see `LICENSE`).
 Font: Archivo Black, SIL Open Font License 1.1 (see `fonts/OFL.txt`).
+
+## This week
+
+이번 주(월–일) 날짜 범위와 주 번호를 보여줘요. 매주 자동으로 바뀌어요.
+
+```
+https://broresult.github.io/notion-widgets/week/
+```
+
+옵션은 시계와 같아요(`theme=dark`, `theme=light`, 없으면 자동).
