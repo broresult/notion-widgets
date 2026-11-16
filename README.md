@@ -13,7 +13,7 @@ Notion 페이지에 넣어 쓰는 작은 위젯 모음이에요.
 3. 모서리를 끌어 크기 조절 (시계가 칸 크기에 맞춰 줄고 늘어나요)
 
 ```
-https://<ORG>.github.io/notion-widgets/clock/
+https://broresult.github.io/notion-widgets/clock/
 ```
 
 **옵션** — 주소 뒤에 붙여요
