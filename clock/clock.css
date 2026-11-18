@@ -27,6 +27,10 @@
 :root[data-tone='rose'] { --tile: #b07a8a; --tile-top: #b98595; --digit: #fbf4f5; }
 :root[data-tone='sky']  { --tile: #6c8ca5; --tile-top: #7696ae; --digit: #f3f7fa; }
 
+:root[data-tone='plum'] { --tile: #16131f; --tile-top: #1f1b2a; --digit: #f0d9e4; --hinge: rgba(255, 255, 255, 0.06); --caption: #4a3f4b; }
+:root[data-theme='dark'][data-tone='plum'] { --caption: #c1a0ac; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light'])[data-tone='plum'] { --caption: #c1a0ac; } }
+
 /* default (auto): follow the viewer's system setting, like Notion's "Use system setting" */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {

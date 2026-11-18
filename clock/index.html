@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="referrer" content="no-referrer">
   <title>Flip clock</title>
-  <link rel="stylesheet" href="clock.css?v=4">
+  <link rel="stylesheet" href="clock.css?v=5">
 </head>
 <body>
   <div class="clock" id="clock" role="timer" aria-live="off">
@@ -16,7 +16,7 @@
     <div class="caption"><span class="ampm"></span><span class="weekday"></span></div>
   </div>
   <script type="module">
-    import { mount, parseOptions } from './clock.js?v=4';
+    import { mount, parseOptions } from './clock.js?v=5';
     mount(document.getElementById('clock'), parseOptions(location.search));
   </script>
 </body>

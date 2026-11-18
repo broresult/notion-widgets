@@ -17,3 +17,4 @@ test('options tone sage', () => assert.equal(parseOptions('?tone=sage').tone, 's
 test('options tone rose and sky', () => { assert.equal(parseOptions('?tone=rose').tone, 'rose'); assert.equal(parseOptions('?tone=sky').tone, 'sky'); });
 test('options tone soft', () => assert.equal(parseOptions('?tone=soft').tone, 'soft'));
 test('options tone mauve', () => assert.equal(parseOptions('?tone=mauve').tone, 'mauve'));
+test('options tone plum', () => assert.equal(parseOptions('?tone=plum').tone, 'plum'));

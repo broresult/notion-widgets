@@ -28,8 +28,9 @@ export function mount(root, theme) {
 
 const NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
 
-// d: 1 = Monday … 7 = Sunday of the week containing `date`.
+// d: 1 = Monday … 7 = Sunday of the week containing `date`; 0 = the undated "Weekly to do" bar.
 export function dayLabel(date, d) {
+  if (d === 0) return { name: 'Weekly to do', md: '', today: false };
   const offset = d - 1 - (date.getDay() + 6) % 7;
   const day = new Date(date.getFullYear(), date.getMonth(), date.getDate() + offset);
   return { name: NAMES[d - 1], md: md(day), today: offset === 0 };
@@ -37,7 +38,7 @@ export function dayLabel(date, d) {
 
 export function parseDay(search) {
   const d = Number(new URLSearchParams(search).get('d'));
-  return Number.isInteger(d) && d >= 1 && d <= 7 ? d : 1;
+  return Number.isInteger(d) && d >= 0 && d <= 7 && new URLSearchParams(search).has('d') ? d : 1;
 }
 
 export function mountDay(root, d, theme) {

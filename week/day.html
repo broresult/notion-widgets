@@ -39,6 +39,10 @@
     @media (prefers-color-scheme: dark) {
       :root:not([data-theme='light'])[data-tone='mauve'] .day { --bar: #241f25; --ink: #c1a0ac; --today: #3a2f39; --mark: #f0d9e4; }
     }
+    /* ?tone=plum: dark plum bars, pink only as the accent (today + the weekly bar text) */
+    :root[data-tone='plum'] .day { --bar: #4a3f4b; --ink: #f3e9ee; --today: #16131f; --mark: #f0d9e4; }
+    :root[data-tone='plum'] .day[data-d='0'] { --bar: #806c79; }
+    :root[data-tone='plum'] .day.today .name { color: #f0d9e4; }
     * { box-sizing: border-box; margin: 0; }
     html, body { height: 100%; }
     body {
@@ -68,8 +72,8 @@
 <body>
   <div class="day" id="day"><span class="name">--</span><span class="date"></span></div>
   <script type="module">
-    import { mountDay, parseDay } from './week.js?v=4';
-    import { parseOptions } from '../clock/clock.js?v=4';
+    import { mountDay, parseDay } from './week.js?v=5';
+    import { parseOptions } from '../clock/clock.js?v=5';
     document.getElementById('day').dataset.d = String(parseDay(location.search));
     document.documentElement.dataset.tone = parseOptions(location.search).tone;
     mountDay(document.getElementById('day'), parseDay(location.search), parseOptions(location.search).theme);

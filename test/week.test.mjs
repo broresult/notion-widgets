@@ -17,3 +17,5 @@ test('on sunday, day 1 is the monday before', () => assert.equal(dayLabel(new Da
 test('day across a month end', () => assert.equal(dayLabel(new Date(2026, 11, 2), 1).md, '11/30'));
 test('parseDay reads d=1..7', () => assert.equal(parseDay('?d=5'), 5));
 test('parseDay falls back to 1', () => { assert.equal(parseDay(''), 1); assert.equal(parseDay('?d=9'), 1); assert.equal(parseDay('?d=x'), 1); });
+test('parseDay accepts 0 for the weekly bar', () => assert.equal(parseDay('?d=0'), 0));
+test('day 0 is the weekly to-do bar', () => assert.deepEqual(dayLabel(wed, 0), { name: 'Weekly to do', md: '', today: false }));

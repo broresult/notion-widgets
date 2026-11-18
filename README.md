@@ -23,7 +23,7 @@ https://broresult.github.io/notion-widgets/clock/
 | (없음) | 기기의 라이트/다크 설정을 자동으로 따라감 | `.../clock/` |
 | `h=24` | 24시간제 | `.../clock/?h=24` |
 | `theme=dark` | 항상 Notion 다크 모드 배경(#191919) | `.../clock/?theme=dark` |
-| `tone=soft` / `mauve` / `sage` / `rose` / `sky` | 시계 타일 색(연한 회색 / 모브 / 초록 / 장미 / 하늘, 없으면 회색) | `.../clock/?tone=mauve` |
+| `tone=soft` / `mauve` / `plum` / `sage` / `rose` / `sky` | 시계 타일 색(연한 회색 / 모브 / 플럼 / 초록 / 장미 / 하늘, 없으면 회색) | `.../clock/?tone=plum` |
 | `theme=light` | 항상 흰 배경 | `.../clock/?theme=light` |
 
 둘 다 쓰려면 `.../clock/?h=24&theme=dark`
@@ -57,7 +57,7 @@ https://broresult.github.io/notion-widgets/week/
 
 ## Day header
 
-이번 주의 요일 제목과 날짜를 보여줘요(예: `Monday 11/16`). 요일마다 Notion 블록 색 하나씩을 쓰고(`tone=mauve`면 모브 한 가지 색), 오늘은 진하게 강조돼요. `d`는 1(월)부터 7(일)까지예요.
+이번 주의 요일 제목과 날짜를 보여줘요(예: `Monday 11/16`). 요일마다 Notion 블록 색 하나씩을 쓰고(`tone=mauve`면 모브, `tone=plum`이면 어두운 플럼에 핑크 포인트). `d=0`은 날짜 없는 "Weekly to do" 띠예요, 오늘은 진하게 강조돼요. `d`는 1(월)부터 7(일)까지예요.
 
 ```
 https://broresult.github.io/notion-widgets/week/day.html?d=1
