@@ -16,6 +16,11 @@
   --bg: #191919;          /* Notion dark page */
   --caption: #9b9a97;
 }
+/* tile colours: ?tone=sage | rose | sky (gray is the default above) */
+:root[data-tone='sage'] { --tile: #6f8a76; --tile-top: #79947f; --digit: #f4f6f1; }
+:root[data-tone='rose'] { --tile: #b07a8a; --tile-top: #b98595; --digit: #fbf4f5; }
+:root[data-tone='sky']  { --tile: #6c8ca5; --tile-top: #7696ae; --digit: #f3f7fa; }
+
 /* default (auto): follow the viewer's system setting, like Notion's "Use system setting" */
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme='light']) {

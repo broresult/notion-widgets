@@ -6,10 +6,35 @@
   <meta name="referrer" content="no-referrer">
   <title>Day</title>
   <style>
-    :root { --bg: #ffffff; --bar: #f1f1ef; --ink: #37352f; --muted: #787774; --hi: #37352f; --hi-ink: #ffffff; }
-    :root[data-theme='dark'] { --bg: #191919; --bar: #252525; --ink: #e6e6e3; --muted: #9b9a97; --hi: #e6e6e3; --hi-ink: #191919; }
+    /* Each weekday borrows one of Notion's own block colours, so the bars sit next to Notion blocks naturally. */
+    :root { --bg: #ffffff; }
+    :root[data-theme='dark'] { --bg: #191919; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) { --bg: #191919; } }
+    [data-d='1'] { --bar: #faf1f5; --ink: #c14c8a; }
+    [data-d='2'] { --bar: #fbecdd; --ink: #d9730d; }
+    [data-d='3'] { --bar: #fbf3db; --ink: #cb912f; }
+    [data-d='4'] { --bar: #edf3ec; --ink: #448361; }
+    [data-d='5'] { --bar: #e7f3f8; --ink: #337ea9; }
+    [data-d='6'] { --bar: #f6f3f9; --ink: #9065b0; }
+    [data-d='7'] { --bar: #fdebec; --ink: #d44c47; }
+    :root { --on-ink: #ffffff; }
+    :root[data-theme='dark'] { --on-ink: #191919; }
+    :root[data-theme='dark'] [data-d='1'] { --bar: #2e2328; --ink: #d15796; }
+    :root[data-theme='dark'] [data-d='2'] { --bar: #36291f; --ink: #cb7b37; }
+    :root[data-theme='dark'] [data-d='3'] { --bar: #372e20; --ink: #c19138; }
+    :root[data-theme='dark'] [data-d='4'] { --bar: #242b26; --ink: #4f9768; }
+    :root[data-theme='dark'] [data-d='5'] { --bar: #1f282d; --ink: #447acb; }
+    :root[data-theme='dark'] [data-d='6'] { --bar: #2a2430; --ink: #865dbb; }
+    :root[data-theme='dark'] [data-d='7'] { --bar: #332523; --ink: #be524b; }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme='light']) { --bg: #191919; --bar: #252525; --ink: #e6e6e3; --muted: #9b9a97; --hi: #e6e6e3; --hi-ink: #191919; }
+      :root:not([data-theme='light']) { --on-ink: #191919; }
+      :root:not([data-theme='light']) [data-d='1'] { --bar: #2e2328; --ink: #d15796; }
+      :root:not([data-theme='light']) [data-d='2'] { --bar: #36291f; --ink: #cb7b37; }
+      :root:not([data-theme='light']) [data-d='3'] { --bar: #372e20; --ink: #c19138; }
+      :root:not([data-theme='light']) [data-d='4'] { --bar: #242b26; --ink: #4f9768; }
+      :root:not([data-theme='light']) [data-d='5'] { --bar: #1f282d; --ink: #447acb; }
+      :root:not([data-theme='light']) [data-d='6'] { --bar: #2a2430; --ink: #865dbb; }
+      :root:not([data-theme='light']) [data-d='7'] { --bar: #332523; --ink: #be524b; }
     }
     * { box-sizing: border-box; margin: 0; }
     html, body { height: 100%; }
@@ -32,9 +57,9 @@
       white-space: nowrap;
     }
     .name { font-size: 15px; font-weight: 700; }
-    .date { font-size: 13px; color: var(--muted); font-variant-numeric: tabular-nums; }
-    .day.today { background: var(--hi); color: var(--hi-ink); }
-    .day.today .date { color: inherit; opacity: .75; }
+    .date { font-size: 13px; color: var(--ink); opacity: .7; font-variant-numeric: tabular-nums; }
+    .day.today { background: var(--ink); color: var(--on-ink); }
+    .day.today .date { color: inherit; opacity: .8; }
   </style>
 </head>
 <body>

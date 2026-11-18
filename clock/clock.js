@@ -14,16 +14,20 @@ export function clockParts(date, { hour12 }) {
   };
 }
 
+const TONES = ['gray', 'sage', 'rose', 'sky'];
+
 export function parseOptions(search) {
   const p = new URLSearchParams(search);
   return {
     hour12: p.get('h') !== '24',
     theme: ['light', 'dark'].includes(p.get('theme')) ? p.get('theme') : 'auto',
+    tone: TONES.includes(p.get('tone')) ? p.get('tone') : 'gray',
   };
 }
 
 export function mount(root, opts) {
   document.documentElement.dataset.theme = opts.theme;
+  document.documentElement.dataset.tone = opts.tone;
   const el = (cls) => root.querySelector(cls);
   const set = (cls, value, flip) => {
     const node = el(cls);

@@ -42,6 +42,7 @@ export function parseDay(search) {
 
 export function mountDay(root, d, theme) {
   if (theme !== 'auto') document.documentElement.dataset.theme = theme;
+  root.dataset.d = String(d);
   const render = () => {
     const l = dayLabel(new Date(), d);
     root.querySelector('.name').textContent = l.name;
