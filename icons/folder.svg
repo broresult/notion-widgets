@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="420" height="66" viewBox="0 0 420 66">
-  <title>Folder</title>
-  <style>
-    .f { fill: #191919; }
-    @media (prefers-color-scheme: dark) { .f { fill: #d9d9d6; } }
-  </style>
-  <!-- folder sits at the left; the rest is transparent so it keeps its size when Notion stretches the image to the column width -->
-  <path class="f" d="M0 9 a6 6 0 0 1 6-6 h22 a6 6 0 0 1 5 2.6 l3 4.4 h50 a6 6 0 0 1 6 6 v44 a6 6 0 0 1-6 6 h-80 a6 6 0 0 1-6-6z"/>
-</svg>
