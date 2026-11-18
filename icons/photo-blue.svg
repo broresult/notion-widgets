@@ -1,8 +1,8 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
   <style>
-    .bg { fill: #e7f3f8; } .ink { fill: none; stroke: #337ea9; } .txt { fill: #337ea9; }
+    .bg { fill: #f2f8fb; } .ink { fill: none; stroke: #9cc3d9; } .txt { fill: #9cc3d9; }
     @media (prefers-color-scheme: dark) {
-      .bg { fill: #1f282d; } .ink { stroke: #447acb; } .txt { fill: #447acb; }
+      .bg { fill: #1f262a; } .ink { stroke: #5b88a4; } .txt { fill: #5b88a4; }
     }
   </style>
   <rect class="bg" width="600" height="600"/>

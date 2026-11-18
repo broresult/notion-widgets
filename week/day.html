@@ -6,35 +6,32 @@
   <meta name="referrer" content="no-referrer">
   <title>Day</title>
   <style>
-    /* Each weekday borrows one of Notion's own block colours, so the bars sit next to Notion blocks naturally. */
+    /* Soft tints of Notion's block colours, one per weekday. Today gets a deeper tint and a side mark. */
     :root { --bg: #ffffff; }
     :root[data-theme='dark'] { --bg: #191919; }
     @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) { --bg: #191919; } }
-    [data-d='1'] { --bar: #faf1f5; --ink: #c14c8a; }
-    [data-d='2'] { --bar: #fbecdd; --ink: #d9730d; }
-    [data-d='3'] { --bar: #fbf3db; --ink: #cb912f; }
-    [data-d='4'] { --bar: #edf3ec; --ink: #448361; }
-    [data-d='5'] { --bar: #e7f3f8; --ink: #337ea9; }
-    [data-d='6'] { --bar: #f6f3f9; --ink: #9065b0; }
-    [data-d='7'] { --bar: #fdebec; --ink: #d44c47; }
-    :root { --on-ink: #ffffff; }
-    :root[data-theme='dark'] { --on-ink: #191919; }
-    :root[data-theme='dark'] [data-d='1'] { --bar: #2e2328; --ink: #d15796; }
-    :root[data-theme='dark'] [data-d='2'] { --bar: #36291f; --ink: #cb7b37; }
-    :root[data-theme='dark'] [data-d='3'] { --bar: #372e20; --ink: #c19138; }
-    :root[data-theme='dark'] [data-d='4'] { --bar: #242b26; --ink: #4f9768; }
-    :root[data-theme='dark'] [data-d='5'] { --bar: #1f282d; --ink: #447acb; }
-    :root[data-theme='dark'] [data-d='6'] { --bar: #2a2430; --ink: #865dbb; }
-    :root[data-theme='dark'] [data-d='7'] { --bar: #332523; --ink: #be524b; }
+    [data-d='1'] { --bar: #fdf6f9; --ink: #c4789f; --today: #f9e6ef; }
+    [data-d='2'] { --bar: #fef6ee; --ink: #cc8a52; --today: #fae6d2; }
+    [data-d='3'] { --bar: #fefaec; --ink: #bf9c4c; --today: #f8eecb; }
+    [data-d='4'] { --bar: #f4f8f3; --ink: #6e9a7b; --today: #e1ede0; }
+    [data-d='5'] { --bar: #f2f8fb; --ink: #5d94b4; --today: #dcecf4; }
+    [data-d='6'] { --bar: #f9f7fb; --ink: #9f83ba; --today: #ece4f3; }
+    [data-d='7'] { --bar: #fdf4f4; --ink: #cc7c77; --today: #f8e0df; }
+    :root[data-theme='dark'] [data-d='1'] { --bar: #2a2226; --ink: #d07fa6; --today: #3a2a32; }
+    :root[data-theme='dark'] [data-d='2'] { --bar: #2c2520; --ink: #cf9361; --today: #3d3026; }
+    :root[data-theme='dark'] [data-d='3'] { --bar: #2c2820; --ink: #c9a75a; --today: #3c3524; }
+    :root[data-theme='dark'] [data-d='4'] { --bar: #222824; --ink: #78a585; --today: #2c3a30; }
+    :root[data-theme='dark'] [data-d='5'] { --bar: #1f262a; --ink: #6ea2c4; --today: #283a44; }
+    :root[data-theme='dark'] [data-d='6'] { --bar: #27232c; --ink: #a88cc4; --today: #352d3e; }
+    :root[data-theme='dark'] [data-d='7'] { --bar: #2c2222; --ink: #d0857f; --today: #3e2c2b; }
     @media (prefers-color-scheme: dark) {
-      :root:not([data-theme='light']) { --on-ink: #191919; }
-      :root:not([data-theme='light']) [data-d='1'] { --bar: #2e2328; --ink: #d15796; }
-      :root:not([data-theme='light']) [data-d='2'] { --bar: #36291f; --ink: #cb7b37; }
-      :root:not([data-theme='light']) [data-d='3'] { --bar: #372e20; --ink: #c19138; }
-      :root:not([data-theme='light']) [data-d='4'] { --bar: #242b26; --ink: #4f9768; }
-      :root:not([data-theme='light']) [data-d='5'] { --bar: #1f282d; --ink: #447acb; }
-      :root:not([data-theme='light']) [data-d='6'] { --bar: #2a2430; --ink: #865dbb; }
-      :root:not([data-theme='light']) [data-d='7'] { --bar: #332523; --ink: #be524b; }
+      :root:not([data-theme='light']) [data-d='1'] { --bar: #2a2226; --ink: #d07fa6; --today: #3a2a32; }
+      :root:not([data-theme='light']) [data-d='2'] { --bar: #2c2520; --ink: #cf9361; --today: #3d3026; }
+      :root:not([data-theme='light']) [data-d='3'] { --bar: #2c2820; --ink: #c9a75a; --today: #3c3524; }
+      :root:not([data-theme='light']) [data-d='4'] { --bar: #222824; --ink: #78a585; --today: #2c3a30; }
+      :root:not([data-theme='light']) [data-d='5'] { --bar: #1f262a; --ink: #6ea2c4; --today: #283a44; }
+      :root:not([data-theme='light']) [data-d='6'] { --bar: #27232c; --ink: #a88cc4; --today: #352d3e; }
+      :root:not([data-theme='light']) [data-d='7'] { --bar: #2c2222; --ink: #d0857f; --today: #3e2c2b; }
     }
     * { box-sizing: border-box; margin: 0; }
     html, body { height: 100%; }
@@ -58,15 +55,16 @@
     }
     .name { font-size: 15px; font-weight: 700; }
     .date { font-size: 13px; color: var(--ink); opacity: .7; font-variant-numeric: tabular-nums; }
-    .day.today { background: var(--ink); color: var(--on-ink); }
-    .day.today .date { color: inherit; opacity: .8; }
+    .day.today { background: var(--today); box-shadow: inset 3px 0 0 var(--ink); }
+    .day.today .date { opacity: .9; }
   </style>
 </head>
 <body>
   <div class="day" id="day"><span class="name">--</span><span class="date"></span></div>
   <script type="module">
-    import { mountDay, parseDay } from './week.js';
-    import { parseOptions } from '../clock/clock.js';
+    import { mountDay, parseDay } from './week.js?v=3';
+    import { parseOptions } from '../clock/clock.js?v=3';
+    document.getElementById('day').dataset.d = String(parseDay(location.search));
     mountDay(document.getElementById('day'), parseDay(location.search), parseOptions(location.search).theme);
   </script>
 </body>

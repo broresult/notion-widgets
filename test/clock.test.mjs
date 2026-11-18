@@ -15,3 +15,4 @@ test('options light forced', () => assert.equal(parseOptions('?theme=light').the
 test('options junk', () => assert.deepEqual(parseOptions('?h=99&theme=neon&tone=neon'), { hour12: true, theme: 'auto', tone: 'gray' }));
 test('options tone sage', () => assert.equal(parseOptions('?tone=sage').tone, 'sage'));
 test('options tone rose and sky', () => { assert.equal(parseOptions('?tone=rose').tone, 'rose'); assert.equal(parseOptions('?tone=sky').tone, 'sky'); });
+test('options tone soft', () => assert.equal(parseOptions('?tone=soft').tone, 'soft'));

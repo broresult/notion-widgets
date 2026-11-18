@@ -23,7 +23,7 @@ https://broresult.github.io/notion-widgets/clock/
 | (없음) | 기기의 라이트/다크 설정을 자동으로 따라감 | `.../clock/` |
 | `h=24` | 24시간제 | `.../clock/?h=24` |
 | `theme=dark` | 항상 Notion 다크 모드 배경(#191919) | `.../clock/?theme=dark` |
-| `tone=sage` / `rose` / `sky` | 시계 타일 색(초록 / 장미 / 하늘, 없으면 회색) | `.../clock/?tone=sage` |
+| `tone=soft` / `sage` / `rose` / `sky` | 시계 타일 색(연한 회색 / 초록 / 장미 / 하늘, 없으면 회색) | `.../clock/?tone=soft` |
 | `theme=light` | 항상 흰 배경 | `.../clock/?theme=light` |
 
 둘 다 쓰려면 `.../clock/?h=24&theme=dark`
