@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 600" width="600" height="600">
+  <style>
+    .bg { fill: #f0d9e4; } .ink { fill: none; stroke: #a8899a; } .txt { fill: #a8899a; }
+    @media (prefers-color-scheme: dark) {
+      .bg { fill: #2e2630; } .ink { stroke: #a8899a; } .txt { fill: #a8899a; }
+    }
+  </style>
+  <rect class="bg" width="600" height="600"/>
+  <g class="ink" stroke-width="10" stroke-linejoin="round" stroke-linecap="round">
+    <rect x="215" y="225" width="170" height="125" rx="18"/>
+    <path d="M262 225 L276 200 H324 L338 225"/>
+    <circle cx="300" cy="288" r="36"/>
+  </g>
+  <text class="txt" x="300" y="410" text-anchor="middle" font-family="ui-sans-serif, -apple-system, 'Segoe UI', sans-serif" font-size="30" letter-spacing="1">Replace with your photo</text>
+</svg>

@@ -14,7 +14,7 @@ export function clockParts(date, { hour12 }) {
   };
 }
 
-const TONES = ['gray', 'soft', 'sage', 'rose', 'sky'];
+const TONES = ['gray', 'soft', 'mauve', 'sage', 'rose', 'sky'];
 
 export function parseOptions(search) {
   const p = new URLSearchParams(search);

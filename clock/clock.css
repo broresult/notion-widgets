@@ -16,7 +16,10 @@
   --bg: #191919;          /* Notion dark page */
   --caption: #9b9a97;
 }
-/* tile colours: ?tone=soft | sage | rose | sky (gray is the default above) */
+/* tile colours: ?tone=soft | mauve | sage | rose | sky (gray is the default above) */
+:root[data-tone='mauve'] { --tile: #4a3f4b; --tile-top: #544855; --digit: #f0d9e4; --caption: #806c79; }
+:root[data-theme='dark'][data-tone='mauve'] { --caption: #c1a0ac; }
+@media (prefers-color-scheme: dark) { :root:not([data-theme='light'])[data-tone='mauve'] { --caption: #c1a0ac; } }
 :root[data-tone='soft'] { --tile: #ecebe7; --tile-top: #f3f2ef; --digit: #6b6862; --hinge: rgba(0, 0, 0, 0.07); }
 :root[data-theme='dark'][data-tone='soft'] { --tile: #2f2f2d; --tile-top: #363634; --digit: #c9c7c2; --hinge: rgba(0, 0, 0, 0.3); }
 @media (prefers-color-scheme: dark) { :root:not([data-theme='light'])[data-tone='soft'] { --tile: #2f2f2d; --tile-top: #363634; --digit: #c9c7c2; --hinge: rgba(0, 0, 0, 0.3); } }
