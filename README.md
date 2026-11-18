@@ -53,3 +53,13 @@ https://broresult.github.io/notion-widgets/week/
 ```
 
 옵션은 시계와 같아요(`theme=dark`, `theme=light`, 없으면 자동).
+
+## Day header
+
+이번 주의 요일 제목과 날짜를 보여줘요(예: `Monday 11/16`). 오늘은 진하게 강조돼요. `d`는 1(월)부터 7(일)까지예요.
+
+```
+https://broresult.github.io/notion-widgets/week/day.html?d=1
+```
+
+Notion에 임베드한 뒤 높이를 한 줄 정도(약 40px)로 줄여 쓰면 돼요.

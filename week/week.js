@@ -25,3 +25,30 @@ export function mount(root, theme) {
   setInterval(render, 60000);
   document.addEventListener('visibilitychange', render);
 }
+
+const NAMES = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+
+// d: 1 = Monday … 7 = Sunday of the week containing `date`.
+export function dayLabel(date, d) {
+  const offset = d - 1 - (date.getDay() + 6) % 7;
+  const day = new Date(date.getFullYear(), date.getMonth(), date.getDate() + offset);
+  return { name: NAMES[d - 1], md: md(day), today: offset === 0 };
+}
+
+export function parseDay(search) {
+  const d = Number(new URLSearchParams(search).get('d'));
+  return Number.isInteger(d) && d >= 1 && d <= 7 ? d : 1;
+}
+
+export function mountDay(root, d, theme) {
+  if (theme !== 'auto') document.documentElement.dataset.theme = theme;
+  const render = () => {
+    const l = dayLabel(new Date(), d);
+    root.querySelector('.name').textContent = l.name;
+    root.querySelector('.date').textContent = l.md;
+    root.classList.toggle('today', l.today);
+  };
+  render();
+  setInterval(render, 60000);
+  document.addEventListener('visibilitychange', render);
+}
