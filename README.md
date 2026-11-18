@@ -64,3 +64,15 @@ https://broresult.github.io/notion-widgets/week/day.html?d=1
 ```
 
 Notion에 임베드한 뒤 높이를 한 줄 정도(약 40px)로 줄여 쓰면 돼요.
+
+## Section label
+
+섹션 제목 띠예요. 어두운 플럼색 바탕에 핑크 점 하나가 들어가요. 아래에 Notion 블록을 붙여 카드처럼 써요.
+
+```
+https://broresult.github.io/notion-widgets/label/?t=MONTHLY%20GOAL&info=month
+```
+
+- `t`: 제목(최대 40자, 띄어쓰기는 `%20`)
+- `info`: 오른쪽에 자동으로 바뀌는 정보. `month`(이번 달), `date`(오늘 날짜), `week`(이번 주 범위), 없으면 비워 둬요
+- `tone=soft`: 조금 밝은 플럼색 띠

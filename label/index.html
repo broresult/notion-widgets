@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="referrer" content="no-referrer">
+  <title>Section label</title>
+  <style>
+    @font-face {
+      font-family: 'Archivo Black';
+      src: url('../fonts/ArchivoBlack-Regular.ttf') format('truetype');
+      font-display: block;
+    }
+    /* Dark plum bar with one pink accent; same colours in light and dark Notion. */
+    :root { --bg: #ffffff; --bar: #16131f; --title: #f3e9ee; --accent: #f0d9e4; --info: #c1a0ac; }
+    :root[data-theme='dark'] { --bg: #191919; }
+    @media (prefers-color-scheme: dark) { :root:not([data-theme='light']) { --bg: #191919; } }
+    :root[data-tone='soft'] { --bar: #4a3f4b; }
+    * { box-sizing: border-box; margin: 0; }
+    html, body { height: 100%; }
+    body { background: var(--bg); display: flex; align-items: center; overflow: hidden; }
+    .label {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      padding: 7px 12px;
+      border-radius: 6px;
+      background: var(--bar);
+      white-space: nowrap;
+    }
+    .dot { width: 7px; height: 7px; border-radius: 2px; background: var(--accent); flex: none; }
+    .title {
+      font-family: 'Archivo Black', 'Arial Black', sans-serif;
+      font-size: 13px;
+      letter-spacing: 0.06em;
+      color: var(--title);
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+    .info {
+      margin-left: auto;
+      font-family: ui-sans-serif, -apple-system, "Segoe UI", sans-serif;
+      font-size: 12px;
+      color: var(--info);
+      font-variant-numeric: tabular-nums;
+    }
+  </style>
+</head>
+<body>
+  <div class="label" id="label"><span class="dot"></span><span class="title"></span><span class="info"></span></div>
+  <script type="module">
+    import { mountLabel, parseLabel } from './label.js?v=6';
+    import { parseOptions } from '../clock/clock.js?v=6';
+    const o = parseOptions(location.search);
+    if (o.theme !== 'auto') document.documentElement.dataset.theme = o.theme;
+    document.documentElement.dataset.tone = o.tone;
+    mountLabel(document.getElementById('label'), parseLabel(location.search));
+  </script>
+</body>
+</html>
